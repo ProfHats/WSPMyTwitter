@@ -20,6 +20,7 @@ class UsersController < ApplicationController
         @user = User.new(secure_params)
         if @user.save
            # Handle a successful save.
+		   sign_in @user  #NEW LINE
 		   flash[:success] = "Welcome to the Twitter App!"    # NEW LINE
 		   redirect_to @user #NEW LINE
         else
